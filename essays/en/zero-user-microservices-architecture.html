@@ -4,19 +4,74 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zero user, microservices architecture</title>
+    <meta name="description" content="A story about learning when to use microservices and when to stick with a monolith.">
+    <title>Zero user, microservices architecture | Bobur Yusupov</title>
     <link rel="stylesheet" href="../../assets/styles/style.css">
 </head>
 
 <body>
+    <div class="progress-container">
+        <div class="progress-bar" id="myBar"></div>
+    </div>
+
+    <nav class="back-nav">
+        <a href="../../index.html" class="back-link">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <line x1="19" y1="12" x2="5" y2="12"></line>
+                <polyline points="12 19 5 12 12 5"></polyline>
+            </svg>
+            Back to Home
+        </a>
+    </nav>
+
     <article>
-        <h1>Zero user, microservices architecture</h1>
-        <p>
-            Six months ago, I started building ERP software using Go, based on microservices architecture. Initially, I created problems that didn't exist yet then started solving them: “What if I hit 1 million requests per second?”, “What if the system fails during the working day?”, “What if the database crashes?”. I was fighting with non-existent problems. A month passed while I was working on the API Gateway and User Authentication. I hadn’t even created database tables for inventory. One night, a question came to my mind: “Should I be using Go for this? I don’t have a single user yet”. 
-            After some research, I realized that using Modular Monolith architecture and Python, I could build a reliable system much faster. I merged all services into one monolith, and focusing on business logic suddenly became easy. Result: I lost a month and a half. I could have spent that time building and releasing an MVP to get my first user and learn their actual requirements.
-            I finished MVP in four months. In the era of coding agents, spending more time feels like a waste. In a startup, the essential thing is building minimal features, releasing MVP as soon as possible, and testing with real users. Because users say what problems they have and what features are needed for the product. A founder may think a user needs ten different features, but that theory rarely survives reality. 
-            For example, I thought inventory needed batch management. However, the user didn’t touch that feature for 2 months. I deleted it, and nothing changed. Now I have a rule: First release, then optimize. If a user asks for a specific feature or mentions a specific problem, that is where I focus. Everything else is useless until you have your first ten users.
-        </p>
+        <header class="essay-header">
+            <h1>Zero user, microservices architecture</h1>
+            <div class="essay-meta-top">
+                <time datetime="2026-05-09">May 9, 2026</time>
+                <span>•</span>
+                <span>Software Architecture</span>
+                <span>•</span>
+                <span>5 min read</span>
+            </div>
+        </header>
+
+        <div class="essay-content">
+            <p>
+                Six months ago, I started building ERP software using Go, based on microservices architecture. Initially, I created problems that didn't exist yet then started solving them: <b>“What if I hit 1 million requests per second?”</b>, “What if the system fails during the working day?”, “What if the database crashes?”.
+            </p>
+            <p>
+                I was fighting with non-existent problems. A month passed while I was working on the API Gateway and User Authentication. I hadn’t even created database tables for inventory. One night, a question came to my mind: <i>“Should I be using Go for this? I don’t have a single user yet”</i>.
+            </p>
+            <p>
+                After some research, I realized that using Modular Monolith architecture and Python, I could build a reliable system much faster. I merged all services into one monolith, and focusing on business logic suddenly became easy.
+            </p>
+            <p>
+                <b>Result: I lost a month and a half.</b> I could have spent that time building and releasing an MVP to get my first user and learn their actual requirements.
+            </p>
+            <p>
+                I finished MVP in four months. In the era of coding agents, spending more time feels like a waste. In a startup, the essential thing is building minimal features, releasing MVP as soon as possible, and testing with real users. Because users say what problems they have and what features are needed for the product.
+            </p>
+            <p>
+                A founder may think a user needs ten different features, but that theory rarely survives reality. For example, I thought inventory needed batch management. However, the user didn’t touch that feature for 2 months. I deleted it, and nothing changed.
+            </p>
+            <p>
+                Now I have a rule: <b>First release, then optimize.</b> If a user asks for a specific feature or mentions a specific problem, that is where I focus. Everything else is useless until you have your first ten users.
+            </p>
+        </div>
     </article>
+
+    <script>
+        window.onscroll = function () { updateProgressBar() };
+
+        function updateProgressBar() {
+            var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            var scrolled = (winScroll / height) * 100;
+            document.getElementById("myBar").style.width = scrolled + "%";
+        }
+    </script>
 </body>
+
 </html>
